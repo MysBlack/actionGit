@@ -1,4 +1,4 @@
-name: PHP CS Fixer
+name: PHP CS Fixer  # Contrôle du style de code
 
 on:
   push:
@@ -10,18 +10,19 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Récupère le code
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@v2  # Installe PHP
         with:
           php-version: '8.3'
           tools: composer:v2
 
       - name: Install dependencies (with lockfile & cache)
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v3  # composer install + cache
         with:
           composer-options: --no-interaction --prefer-dist
 
       - name: Check code style (dry-run)
-        run: vendor/bin/php-cs-fixer fix --dry-run --diff --using-cache=no
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff --using-cache=no  # Vérifie sans corriger
+        # NB: --dry-run renvoie un code d'erreur si le style n'est pas conforme => job en rouge

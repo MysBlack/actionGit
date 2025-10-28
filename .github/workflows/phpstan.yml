@@ -1,4 +1,4 @@
-name: PHPStan Analysis
+name: PHPStan Analysis  # Analyse statique
 
 on:
   push:
@@ -10,18 +10,18 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Récupère le code
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@v2  # Installe PHP
         with:
           php-version: '8.3'
           tools: composer:v2
 
       - name: Install dependencies (with lockfile & cache)
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v3  # composer install + cache
         with:
           composer-options: --no-interaction --prefer-dist
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan analyse --configuration=phpstan.neon.dist
+        run: vendor/bin/phpstan analyse --configuration=phpstan.neon.dist  # Analyse le dossier src

@@ -1,27 +1,27 @@
-name: PHPUnit Tests
+name: PHPUnit Tests  # Nom du workflow (apparaît dans l’onglet Actions)
 
-on:
-  push:
-  pull_request:
+on:                  # Événements déclencheurs
+  push:              # à chaque push
+  pull_request:      # et à chaque PR
 
 jobs:
-  tests:
-    runs-on: ubuntu-latest
+  tests:             # Un job nommé "tests"
+    runs-on: ubuntu-latest  # Machine virtuelle GitHub
 
-    steps:
+    steps:           # Étapes du job
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4   # Action officielle pour cloner le dépôt
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@v2  # Action pour installer/configurer PHP
         with:
-          php-version: '8.3'
-          tools: composer:v2
+          php-version: '8.3'             # Version de PHP
+          tools: composer:v2             # Installe Composer v2
 
       - name: Install dependencies (with lockfile & cache)
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v3 # Action qui fait un composer install fiable + cache
         with:
-          composer-options: --no-interaction --prefer-dist
+          composer-options: --no-interaction --prefer-dist  # Options Composer
 
       - name: Run PHPUnit
-        run: vendor/bin/phpunit -c phpunit.xml.dist
+        run: vendor/bin/phpunit -c phpunit.xml.dist -v   # Lance les tests avec la config PHPUnit

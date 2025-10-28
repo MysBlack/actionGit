@@ -1,0 +1,7 @@
+/vendor/
+/.phpunit.cache/
+/.php-cs-fixer.cache/
+/.php-cs-fixer.php.cache/
+/.phpstan/
+/.idea/
+/.vscode/

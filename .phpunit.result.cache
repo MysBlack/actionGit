@@ -1,0 +1,1 @@
+{"version":2,"defects":[],"times":{"MathTest::testAdd":0.001,"MathTest::testSub":0.001,"MathTest::testMul":0.001,"MathTest::testDiv":0.001,"MathTest::testDivByZeroThrows":0.001}}
