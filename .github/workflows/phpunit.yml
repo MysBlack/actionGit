@@ -24,4 +24,4 @@ jobs:
           composer-options: --no-interaction --prefer-dist  # Options Composer
 
       - name: Run PHPUnit
-        run: vendor/bin/phpunit -c phpunit.xml.dist -v   # Lance les tests avec la config PHPUnit
+        run: vendor/bin/phpunit --configuration phpunit.xml.dist   # Lance les tests avec la config PHPUnit
